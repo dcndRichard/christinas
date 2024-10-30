@@ -1,0 +1,7 @@
+[
+    {"exercise":"flat dumbell press","sets": 5,"reps":40,"weight":"55lbs"},
+    {"exercise":"incline dumbell press","sets": 4,"reps":10,"weight":"100lbs"},
+    {"exercise":"decline dumbell press","sets": 4,"reps":"10-15","weight":"55lbs"},
+    {"exercise":"single arm cable press down","sets": 5,"reps":"10-15","weight":"30-40lbs"}
+
+]
