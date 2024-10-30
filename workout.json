@@ -1,6 +1,6 @@
 [
     {
-        "body part":"chest",
+        "bodyPart":"chest",
         "workout":[
             {
               "exercise": "flat dumbell press",
@@ -29,7 +29,7 @@
         ]
     },
     {
-        "body part":"back",
+        "bodyPart":"back",
         "workout":[
             {
               "exercise": "pull ups",
