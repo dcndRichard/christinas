@@ -10,89 +10,91 @@ function fetch1(callback) {
   request.open("GET", "/workout.json");
   request.send();
 }
-/* -------------------- */
-let exerciseListItems = document.querySelector("#exercise-list").children;
-let exerciseDisplay = document.querySelector("#exercise-display");
 
-// for (let listItem of exerciseListItems) {
-//   listItem.addEventListener("click", e => {
-//     // console.log(e.target.id);
-//     toggle();
-//   });
-// }
-
-// function toggle() {
-//   if (exerciseDisplay.children.length === 0) {
-//     fetch1(populateContentCallback);
-//   } else {
-//     exerciseDisplay.innerHTML = "";
-//   }
-// }
-
-for (let listItem of exerciseListItems) {
-  listItem.addEventListener("click", e => {
-    let elements = ``;
-    fetch1((err, data) => {
-      if (err) {
-        console.log(err);
-      } else {
-        for (let item of data) {
-          if (e.target.id === item.bodyPart) {
-            console.log(item.workout);
-            for (let exercise of item.workout) {
-              elements += ` <p>${exercise.exercise}</p>`;
-            }
-              console.log(exerciseDisplay.innerHTML.valueOf());
-            exerciseDisplay.innerHTML = (exerciseDisplay.children.length == 0) ? elements : " " ;
-            elements = "";
-            break;
-          }
-        }
-      }
-    });
-  });
-}
-
-// function populateContentCallback(err, data){
-//     if (err) {
-//         console.log(err);
-//     } else {
-//         console.log(data)
-//         for (let i of data) {
-//             if (i.bodyPart === "chest") {
-//                 console.log(i)
-//             }
-//         }
-//         data[ 0 ].workout.forEach(item => {
-//             exerciseDisplay.innerHTML += `
-//                           <p>${item.exercise}</p>
-//                       `;
-//         });
-//     }
-// }
-
-/* 
-
-let exerciseListItems = document.querySelector("#exercise-list").children;
-for (let listItem of exerciseListItems) {
-  listItem.addEventListener("click", e => {
-    console.log(e.target.id);
-    let exerciseDisplay = document.querySelector("#exercise-display");
-    if (exerciseDisplay.children.length === 0)
+/* -------------------------------------------------------------------------------- */
+function addClickEventandFetchData() {
+  let exerciseListItems = document.querySelector("#exercise-list").children;
+  let exerciseDisplay = document.querySelector("#exercise-display");
+    let row = "";
+  for (let listItem of exerciseListItems) {
+    listItem.addEventListener("click", e => {
+      let elements = ``;
       fetch1((err, data) => {
         if (err) {
           console.log(err);
         } else {
-          data[0].workout.forEach(item => {
-            exerciseDisplay.innerHTML += `
-                          <p>${item.exercise}</p>
-                      `;
-          });
+          for (let obj1 of data) {
+            if (e.target.id === obj1.bodyPart) {
+                //   console.log(item.workout);
+                
+                    for (let obj2 of obj1.workout) {
+                        // elements += ` <p>Exercise: ${obj2.exercise} Sets: ${obj2.sets} Reps</p>`;
+                    row += `
+                    <tr>
+                        <td>${obj2.exercise}</td>
+                        <td>${obj2.sets}</td>
+                        <td>${obj2.reps}</td>
+                        <td>${obj2.weight}</td>
+                    </tr>`
+                    }
+
+               
+                let table = `
+                    <table border=1>
+                        <tr>
+                            <th>Exercise</th>
+                            <th>Sets</th>
+                            <th>Reps</th>
+                            <th>Weight</th>
+                        </tr>
+                        ${row}
+                    </table>
+                `;
+             
+            //   exerciseDisplay.innerHTML = (exerciseDisplay.children.length == 0) ? elements : " ";
+            // elements = "";
+              exerciseDisplay.innerHTML = (exerciseDisplay.children.length == 0) ? table : " ";
+                row = ""
+              break;
+            }
+          }
         }
       });
-    else {
-      exerciseDisplay.innerHTML = "";
-    }
-  });
+    });
+  }
 }
+addClickEventandFetchData();
+
+
+
+
+/* 
+function addClickEventandFetchData() {
+  let exerciseListItems = document.querySelector("#exercise-list").children;
+  let exerciseDisplay = document.querySelector("#exercise-display");
+
+  for (let listItem of exerciseListItems) {
+    listItem.addEventListener("click", e => {
+      let elements = ``;
+      fetch1((err, data) => {
+        if (err) {
+          console.log(err);
+        } else {
+          for (let obj1 of data) {
+            if (e.target.id === obj1.bodyPart) {
+            //   console.log(item.workout);
+              for (let obj2 of obj1.workout) {
+                elements += ` <p>Exercise: ${obj2.exercise} Sets: ${obj2.sets} Reps</p>`;
+              }
+              exerciseDisplay.innerHTML = (exerciseDisplay.children.length == 0) ? elements : " ";
+              elements = "";
+              break;
+            }
+          }
+        }
+      });
+    });
+  }
+}
+
 */

@@ -56,6 +56,64 @@
               "weight": "245-335bs"
             }
         ]
+    },
+    {
+        "bodyPart":"legs",
+        "workout":[
+            {
+              "exercise": "squats",
+              "sets": "5",
+              "reps": 10,
+              "weight": "135"
+            },
+            {
+              "exercise": "leg slead",
+              "sets": 4,
+              "reps": 10,
+              "weight": "180"
+            },
+            {
+              "exercise": "prone leg curls",
+              "sets": 5,
+              "reps": "10-25",
+              "weight": "varies"
+            },
+            {
+              "exercise": "RDL",
+              "sets": 4,
+              "reps": "10-12",
+              "weight": "varies"
+            }
+        ]
+    },
+    {
+        "bodyPart":"shoulders",
+        "workout":[
+            {
+              "exercise": "overhead press",
+              "sets": "5",
+              "reps": 10,
+              "weight": "95-135lbs"
+            },
+            {
+              "exercise": "side laterals",
+              "sets": 4,
+              "reps": "10-25",
+              "weight": "varies"
+            },
+            {
+              "exercise": "rear delt flys",
+              "sets": 8,
+              "reps": "10-25",
+              "weight": "varies"
+            },
+            {
+              "exercise": "cable laterals",
+              "sets": 4,
+              "reps": "10-12",
+              "weight": "varies"
+            }
+        ]
     }
     
 
